@@ -1,7 +1,10 @@
-name: learn-github-actions
-on: [push]
+name: ardupilot-beagle-bone-blue-binaries
+on: [push, schedule]
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '30 5,17 * * *'
 jobs:
-  ardupilot-beagle-bone-blue-binaries:
+  latest:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
