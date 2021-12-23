@@ -5,3 +5,5 @@ Build the [ArduPilot](https://github.com/ArduPilot/ardupilot) binaries for the t
 Check the latest/topmost entry on https://github.com/drtrigon/ardupilot-beagle-bone-blue-binaries/actions and download the artifacts at the bottom of the page.
 
 Currently the target gets build twice a day.
+
+For more info refer to: https://github.com/ArduPilot/ardupilot/issues/18921
