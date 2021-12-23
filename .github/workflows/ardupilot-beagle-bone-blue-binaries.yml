@@ -23,7 +23,7 @@ jobs:
         with:
           name: latest
           path: ardupilot/build/blue/bin/
-  Copter-4.1:
+  Copter-4_1:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
@@ -42,7 +42,7 @@ jobs:
         with:
           name: Copter-4.1
           path: ardupilot/build/blue/bin/
-  Plane-4.1:
+  Plane-4_1:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
@@ -61,7 +61,7 @@ jobs:
         with:
           name: Plane-4.1
           path: ardupilot/build/blue/bin/
-  Rover-4.1:
+  Rover-4_1:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
@@ -80,7 +80,7 @@ jobs:
         with:
           name: Rover-4.1
           path: ardupilot/build/blue/bin/
-  Sub-4.1:
+  Sub-4_1:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
