@@ -1,0 +1,17 @@
+name: learn-github-actions
+on: [push]
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-focal
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - run: sudo apt update
+      - run: sudo apt install git
+      - run: git clone https://github.com/ardupilot/ardupilot.git
+      - run: cd ardupilot
+      - run: git submodule update --init --recursive
+      - run: ./waf configure --board=blue
+      - run: ./waf
