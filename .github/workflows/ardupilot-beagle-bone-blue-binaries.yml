@@ -14,7 +14,6 @@ jobs:
           node-version: '14'
       #- run: sudo apt update
       #- run: sudo apt install git
-      - run: sudo apt install g++
       - run: git clone https://github.com/ardupilot/ardupilot.git
       #- run: cd ardupilot
       - run: cd ardupilot && ./Tools/environment_install/install-prereqs-ubuntu.sh
