@@ -12,6 +12,6 @@ jobs:
       #- run: sudo apt install git
       - run: git clone https://github.com/ardupilot/ardupilot.git
       - run: cd ardupilot
-      - run: git submodule update --init --recursive
-      - run: ./waf configure --board=blue
-      - run: ./waf
+      - run: cd ardupilot && git submodule update --init --recursive
+      - run: cd ardupilot && ./waf configure --board=blue
+      - run: cd ardupilot && ./waf
