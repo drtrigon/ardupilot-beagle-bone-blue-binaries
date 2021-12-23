@@ -13,6 +13,8 @@ jobs:
       - run: sudo apt install g++
       - run: git clone https://github.com/ardupilot/ardupilot.git
       - run: cd ardupilot
+      - run: cd ardupilot && ./Tools/environment_install/install-prereqs-ubuntu.sh
+      #- run: cd ardupilot && git checkout Plane-4.1
       - run: cd ardupilot && git submodule update --init --recursive
       - run: cd ardupilot && ./waf configure --board=blue
       - run: cd ardupilot && ./waf
