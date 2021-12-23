@@ -1,7 +1,7 @@
 name: learn-github-actions
 on: [push]
 jobs:
-  check-bats-version:
+  ardupilot-beagle-bone-blue-binaries:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
@@ -12,9 +12,13 @@ jobs:
       #- run: sudo apt install git
       - run: sudo apt install g++
       - run: git clone https://github.com/ardupilot/ardupilot.git
-      - run: cd ardupilot
+      #- run: cd ardupilot
       - run: cd ardupilot && ./Tools/environment_install/install-prereqs-ubuntu.sh
       #- run: cd ardupilot && git checkout Plane-4.1
       - run: cd ardupilot && git submodule update --init --recursive
       - run: cd ardupilot && ./waf configure --board=blue
       - run: cd ardupilot && ./waf
+      - uses: actions/upload-artifact@v2
+        with:
+          name: latest
+          path: ardupilot/build/blue/bin/
