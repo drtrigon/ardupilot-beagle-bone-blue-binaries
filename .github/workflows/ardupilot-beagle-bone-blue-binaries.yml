@@ -3,34 +3,16 @@ on:
   push:
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  '30 5,17 * * *'
+    - cron:  '30 5 * * *'
 jobs:
-  latest-test:
-    runs-on: ardupilot/ardupilot-dev-base:latest
-    steps:
-      - uses: actions/checkout@v2
-      #- run: sudo apt update
-      #- run: sudo apt install git
-      - run: git clone https://github.com/ardupilot/ardupilot.git
-      #- run: cd ardupilot && ./Tools/environment_install/install-prereqs-ubuntu.sh
-      - run: cd ardupilot && git submodule update --init --recursive
-      - run: cd ardupilot && ./waf configure --board=blue
-      - run: cd ardupilot && ./waf
-      - uses: actions/upload-artifact@v2
-        with:
-          name: latest-test
-          path: ardupilot/build/blue/bin/
   latest:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14'
       #- run: sudo apt update
       #- run: sudo apt install git
       - run: git clone https://github.com/ardupilot/ardupilot.git
-      - run: cd ardupilot && ./Tools/environment_install/install-prereqs-ubuntu.sh
+      - run: cd ardupilot && SKIP_AP_EXT_ENV=1 SKIP_AP_GRAPHIC_ENV=1 SKIP_AP_COV_ENV=1 SKIP_AP_GIT_CHECK=1 ./Tools/environment_install/install-prereqs-ubuntu.sh
       - run: cd ardupilot && git submodule update --init --recursive
       - run: cd ardupilot && ./waf configure --board=blue
       - run: cd ardupilot && ./waf
@@ -42,9 +24,6 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14'
       #- run: sudo apt update
       #- run: sudo apt install git
       - run: git clone https://github.com/ardupilot/ardupilot.git
@@ -61,9 +40,6 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14'
       #- run: sudo apt update
       #- run: sudo apt install git
       - run: git clone https://github.com/ardupilot/ardupilot.git
@@ -80,9 +56,6 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14'
       #- run: sudo apt update
       #- run: sudo apt install git
       - run: git clone https://github.com/ardupilot/ardupilot.git
@@ -99,9 +72,6 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14'
       #- run: sudo apt update
       #- run: sudo apt install git
       - run: git clone https://github.com/ardupilot/ardupilot.git
