@@ -27,7 +27,7 @@ jobs:
       #- run: sudo apt update
       #- run: sudo apt install git
       - run: git clone https://github.com/ardupilot/ardupilot.git
-      - run: cd ardupilot && ./Tools/environment_install/install-prereqs-ubuntu.sh
+      - run: cd ardupilot && SKIP_AP_EXT_ENV=1 SKIP_AP_GRAPHIC_ENV=1 SKIP_AP_COV_ENV=1 SKIP_AP_GIT_CHECK=1 ./Tools/environment_install/install-prereqs-ubuntu.sh
       - run: cd ardupilot && git checkout Copter-4.1
       - run: cd ardupilot && git submodule update --init --recursive
       - run: cd ardupilot && ./waf configure --board=blue
@@ -43,7 +43,7 @@ jobs:
       #- run: sudo apt update
       #- run: sudo apt install git
       - run: git clone https://github.com/ardupilot/ardupilot.git
-      - run: cd ardupilot && ./Tools/environment_install/install-prereqs-ubuntu.sh
+      - run: cd ardupilot && SKIP_AP_EXT_ENV=1 SKIP_AP_GRAPHIC_ENV=1 SKIP_AP_COV_ENV=1 SKIP_AP_GIT_CHECK=1 ./Tools/environment_install/install-prereqs-ubuntu.sh
       - run: cd ardupilot && git checkout Plane-4.1
       - run: cd ardupilot && git submodule update --init --recursive
       - run: cd ardupilot && ./waf configure --board=blue
@@ -59,7 +59,7 @@ jobs:
       #- run: sudo apt update
       #- run: sudo apt install git
       - run: git clone https://github.com/ardupilot/ardupilot.git
-      - run: cd ardupilot && ./Tools/environment_install/install-prereqs-ubuntu.sh
+      - run: cd ardupilot && SKIP_AP_EXT_ENV=1 SKIP_AP_GRAPHIC_ENV=1 SKIP_AP_COV_ENV=1 SKIP_AP_GIT_CHECK=1 ./Tools/environment_install/install-prereqs-ubuntu.sh
       - run: cd ardupilot && git checkout Rover-4.1
       - run: cd ardupilot && git submodule update --init --recursive
       - run: cd ardupilot && ./waf configure --board=blue
@@ -75,7 +75,7 @@ jobs:
       #- run: sudo apt update
       #- run: sudo apt install git
       - run: git clone https://github.com/ardupilot/ardupilot.git
-      - run: cd ardupilot && ./Tools/environment_install/install-prereqs-ubuntu.sh
+      - run: cd ardupilot && SKIP_AP_EXT_ENV=1 SKIP_AP_GRAPHIC_ENV=1 SKIP_AP_COV_ENV=1 SKIP_AP_GIT_CHECK=1 ./Tools/environment_install/install-prereqs-ubuntu.sh
       - run: cd ardupilot && git checkout Sub-4.1
       - run: cd ardupilot && git submodule update --init --recursive
       - run: cd ardupilot && ./waf configure --board=blue
