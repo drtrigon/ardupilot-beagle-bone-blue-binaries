@@ -97,7 +97,7 @@ jobs:
       - run: git clone https://github.com/ardupilot/ardupilot.git
       - run: cd ardupilot && SKIP_AP_EXT_ENV=1 SKIP_AP_GRAPHIC_ENV=1 SKIP_AP_COV_ENV=1 SKIP_AP_GIT_CHECK=1 ./Tools/environment_install/install-prereqs-ubuntu.sh
       - run: cd ardupilot && git checkout Rover-4.1
-      - run: cd ardupilot && git checkout ArduRover-stable
+      - run: cd ardupilot && git checkout APMrover2-stable
       - run: cd ardupilot && git submodule update --init --recursive
       - run: cd ardupilot && ./waf configure --board=blue
       - run: cd ardupilot && ./waf
@@ -114,7 +114,7 @@ jobs:
       - run: git clone https://github.com/ardupilot/ardupilot.git
       - run: cd ardupilot && SKIP_AP_EXT_ENV=1 SKIP_AP_GRAPHIC_ENV=1 SKIP_AP_COV_ENV=1 SKIP_AP_GIT_CHECK=1 ./Tools/environment_install/install-prereqs-ubuntu.sh
       - run: cd ardupilot && git checkout Rover-4.1
-      - run: cd ardupilot && git checkout ArduRover-beta
+      - run: cd ardupilot && git checkout APMrover2-beta
       - run: cd ardupilot && git submodule update --init --recursive
       - run: cd ardupilot && ./waf configure --board=blue
       - run: cd ardupilot && ./waf
