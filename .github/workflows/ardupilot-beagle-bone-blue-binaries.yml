@@ -5,7 +5,7 @@ on:
     # * is a special character in YAML so you have to quote this string
     - cron:  '30 5 * * *'
 jobs:
-  latest:
+  master-latest:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
@@ -18,9 +18,9 @@ jobs:
       - run: cd ardupilot && ./waf
       - uses: actions/upload-artifact@v2
         with:
-          name: latest
+          name: master-latest
           path: ardupilot/build/blue/bin/
-  Copter-4_1:
+  Copter-4_1-stable:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
@@ -29,14 +29,32 @@ jobs:
       - run: git clone https://github.com/ardupilot/ardupilot.git
       - run: cd ardupilot && SKIP_AP_EXT_ENV=1 SKIP_AP_GRAPHIC_ENV=1 SKIP_AP_COV_ENV=1 SKIP_AP_GIT_CHECK=1 ./Tools/environment_install/install-prereqs-ubuntu.sh
       - run: cd ardupilot && git checkout Copter-4.1
+      - run: cd ardupilot && git checkout ArduCopter-stable
       - run: cd ardupilot && git submodule update --init --recursive
       - run: cd ardupilot && ./waf configure --board=blue
       - run: cd ardupilot && ./waf
       - uses: actions/upload-artifact@v2
         with:
-          name: Copter-4.1
+          name: Copter-4.1-stable
           path: ardupilot/build/blue/bin/
-  Plane-4_1:
+  Copter-4_1-beta:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      #- run: sudo apt update
+      #- run: sudo apt install git
+      - run: git clone https://github.com/ardupilot/ardupilot.git
+      - run: cd ardupilot && SKIP_AP_EXT_ENV=1 SKIP_AP_GRAPHIC_ENV=1 SKIP_AP_COV_ENV=1 SKIP_AP_GIT_CHECK=1 ./Tools/environment_install/install-prereqs-ubuntu.sh
+      - run: cd ardupilot && git checkout Copter-4.1
+      - run: cd ardupilot && git checkout ArduCopter-beta
+      - run: cd ardupilot && git submodule update --init --recursive
+      - run: cd ardupilot && ./waf configure --board=blue
+      - run: cd ardupilot && ./waf
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Copter-4.1-beta
+          path: ardupilot/build/blue/bin/
+  Plane-4_1-stable:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
@@ -45,14 +63,32 @@ jobs:
       - run: git clone https://github.com/ardupilot/ardupilot.git
       - run: cd ardupilot && SKIP_AP_EXT_ENV=1 SKIP_AP_GRAPHIC_ENV=1 SKIP_AP_COV_ENV=1 SKIP_AP_GIT_CHECK=1 ./Tools/environment_install/install-prereqs-ubuntu.sh
       - run: cd ardupilot && git checkout Plane-4.1
+      - run: cd ardupilot && git checkout ArduPlane-stable
       - run: cd ardupilot && git submodule update --init --recursive
       - run: cd ardupilot && ./waf configure --board=blue
       - run: cd ardupilot && ./waf
       - uses: actions/upload-artifact@v2
         with:
-          name: Plane-4.1
+          name: Plane-4.1-stable
           path: ardupilot/build/blue/bin/
-  Rover-4_1:
+  Plane-4_1-beta:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      #- run: sudo apt update
+      #- run: sudo apt install git
+      - run: git clone https://github.com/ardupilot/ardupilot.git
+      - run: cd ardupilot && SKIP_AP_EXT_ENV=1 SKIP_AP_GRAPHIC_ENV=1 SKIP_AP_COV_ENV=1 SKIP_AP_GIT_CHECK=1 ./Tools/environment_install/install-prereqs-ubuntu.sh
+      - run: cd ardupilot && git checkout Plane-4.1
+      - run: cd ardupilot && git checkout ArduPlane-beta
+      - run: cd ardupilot && git submodule update --init --recursive
+      - run: cd ardupilot && ./waf configure --board=blue
+      - run: cd ardupilot && ./waf
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Plane-4.1-beta
+          path: ardupilot/build/blue/bin/
+  Rover-4_1-stable:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
@@ -61,14 +97,32 @@ jobs:
       - run: git clone https://github.com/ardupilot/ardupilot.git
       - run: cd ardupilot && SKIP_AP_EXT_ENV=1 SKIP_AP_GRAPHIC_ENV=1 SKIP_AP_COV_ENV=1 SKIP_AP_GIT_CHECK=1 ./Tools/environment_install/install-prereqs-ubuntu.sh
       - run: cd ardupilot && git checkout Rover-4.1
+      - run: cd ardupilot && git checkout ArduRover-stable
       - run: cd ardupilot && git submodule update --init --recursive
       - run: cd ardupilot && ./waf configure --board=blue
       - run: cd ardupilot && ./waf
       - uses: actions/upload-artifact@v2
         with:
-          name: Rover-4.1
+          name: Rover-4.1-stable
           path: ardupilot/build/blue/bin/
-  Sub-4_1:
+  Rover-4_1-beta:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      #- run: sudo apt update
+      #- run: sudo apt install git
+      - run: git clone https://github.com/ardupilot/ardupilot.git
+      - run: cd ardupilot && SKIP_AP_EXT_ENV=1 SKIP_AP_GRAPHIC_ENV=1 SKIP_AP_COV_ENV=1 SKIP_AP_GIT_CHECK=1 ./Tools/environment_install/install-prereqs-ubuntu.sh
+      - run: cd ardupilot && git checkout Rover-4.1
+      - run: cd ardupilot && git checkout ArduRover-beta
+      - run: cd ardupilot && git submodule update --init --recursive
+      - run: cd ardupilot && ./waf configure --board=blue
+      - run: cd ardupilot && ./waf
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Rover-4.1-beta
+          path: ardupilot/build/blue/bin/
+  Sub-4_1-stable:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
@@ -77,10 +131,28 @@ jobs:
       - run: git clone https://github.com/ardupilot/ardupilot.git
       - run: cd ardupilot && SKIP_AP_EXT_ENV=1 SKIP_AP_GRAPHIC_ENV=1 SKIP_AP_COV_ENV=1 SKIP_AP_GIT_CHECK=1 ./Tools/environment_install/install-prereqs-ubuntu.sh
       - run: cd ardupilot && git checkout Sub-4.1
+      - run: cd ardupilot && git checkout ArduSub-stable
       - run: cd ardupilot && git submodule update --init --recursive
       - run: cd ardupilot && ./waf configure --board=blue
       - run: cd ardupilot && ./waf
       - uses: actions/upload-artifact@v2
         with:
-          name: Sub-4.1
+          name: Sub-4.1-stable
+          path: ardupilot/build/blue/bin/
+  Sub-4_1-beta:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      #- run: sudo apt update
+      #- run: sudo apt install git
+      - run: git clone https://github.com/ardupilot/ardupilot.git
+      - run: cd ardupilot && SKIP_AP_EXT_ENV=1 SKIP_AP_GRAPHIC_ENV=1 SKIP_AP_COV_ENV=1 SKIP_AP_GIT_CHECK=1 ./Tools/environment_install/install-prereqs-ubuntu.sh
+      - run: cd ardupilot && git checkout Sub-4.1
+      - run: cd ardupilot && git checkout ArduSub-beta
+      - run: cd ardupilot && git submodule update --init --recursive
+      - run: cd ardupilot && ./waf configure --board=blue
+      - run: cd ardupilot && ./waf
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Sub-4.1-beta
           path: ardupilot/build/blue/bin/
