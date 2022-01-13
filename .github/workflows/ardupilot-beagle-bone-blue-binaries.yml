@@ -17,7 +17,7 @@ jobs:
       - run: cd ardupilot && git checkout ArduCopter-stable
       - run: cd ardupilot && git submodule update --init --recursive
       - run: cd ardupilot && ./waf configure --board=blue
-      - run: cd ardupilot && ./waf
+      - run: cd ardupilot && ./waf copter
       - uses: actions/upload-artifact@v2
         with:
           name: Copter-stable
@@ -34,7 +34,7 @@ jobs:
       - run: cd ardupilot && git checkout ArduCopter-beta
       - run: cd ardupilot && git submodule update --init --recursive
       - run: cd ardupilot && ./waf configure --board=blue
-      - run: cd ardupilot && ./waf
+      - run: cd ardupilot && ./waf copter
       - uses: actions/upload-artifact@v2
         with:
           name: Copter-beta
@@ -51,7 +51,7 @@ jobs:
       - run: cd ardupilot && git checkout ArduPlane-stable
       - run: cd ardupilot && git submodule update --init --recursive
       - run: cd ardupilot && ./waf configure --board=blue
-      - run: cd ardupilot && ./waf
+      - run: cd ardupilot && ./waf plane
       - uses: actions/upload-artifact@v2
         with:
           name: Plane-stable
@@ -68,7 +68,7 @@ jobs:
       - run: cd ardupilot && git checkout ArduPlane-beta
       - run: cd ardupilot && git submodule update --init --recursive
       - run: cd ardupilot && ./waf configure --board=blue
-      - run: cd ardupilot && ./waf
+      - run: cd ardupilot && ./waf plane
       - uses: actions/upload-artifact@v2
         with:
           name: Plane-beta
@@ -85,7 +85,7 @@ jobs:
       - run: cd ardupilot && git checkout APMrover2-stable
       - run: cd ardupilot && git submodule update --init --recursive
       - run: cd ardupilot && ./waf configure --board=blue
-      - run: cd ardupilot && ./waf
+      - run: cd ardupilot && ./waf rover
       - uses: actions/upload-artifact@v2
         with:
           name: Rover-stable
@@ -102,7 +102,7 @@ jobs:
       - run: cd ardupilot && git checkout APMrover2-beta
       - run: cd ardupilot && git submodule update --init --recursive
       - run: cd ardupilot && ./waf configure --board=blue
-      - run: cd ardupilot && ./waf
+      - run: cd ardupilot && ./waf rover
       - uses: actions/upload-artifact@v2
         with:
           name: Rover-beta
@@ -119,7 +119,7 @@ jobs:
       - run: cd ardupilot && git checkout ArduSub-stable
       - run: cd ardupilot && git submodule update --init --recursive
       - run: cd ardupilot && ./waf configure --board=blue
-      - run: cd ardupilot && ./waf
+      - run: cd ardupilot && ./waf sub
       - uses: actions/upload-artifact@v2
         with:
           name: Sub-stable
@@ -136,7 +136,7 @@ jobs:
       - run: cd ardupilot && git checkout ArduSub-beta
       - run: cd ardupilot && git submodule update --init --recursive
       - run: cd ardupilot && ./waf configure --board=blue
-      - run: cd ardupilot && ./waf
+      - run: cd ardupilot && ./waf sub
       - uses: actions/upload-artifact@v2
         with:
           name: Sub-beta
