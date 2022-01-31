@@ -3,6 +3,10 @@
 **Pull Request https://github.com/ArduPilot/ardupilot/pull/19693 implements building of BeagleBoneBlue binaries into ArduPilot firmware and custom build server - therefore THIS GITHUB ACTION IS NOT NEEDED ANYMORE and will be disabled!**
 
 **This repository will stay as a reference if anybody becomes interessted in how the build process works or needs to setup this as an action, e.g. for developping on a fork of ArduPilot.**
+
+**How to use this repo:**
+1. **create a fork**
+2. **activate the github action on your fork**
 ***
 
 # ardupilot-beagle-bone-blue-binaries
